@@ -2,237 +2,543 @@
 <html>
 <head>
 	<title>Fake10 for XFCE</title>
-	<link rel="icon" type="image/x-icon" href="sitecontent/0.png">
-	<meta name="description" content="Archive for Fake10, the XFCE Linux Windows 10-style theme">
+	<link rel="icon" href="sitecontent/icon.png" type="image/x-icon">
+	<meta charset="UTF-8">
+	<meta name="description" content="A faithful Windows 10 theme for XFCE/Linux">
+	<meta property="og:image" content="https://honu1234.github.io/fake10/sitecontent/0.png">
 </head>
-<body bgcolor=#202020>
-	<img src="sitecontent/windowribbongray.png" draggable="false" class="prettyimg" alt="prettyborder">
-	<div class="boxy">
-		<h1>Fake10 for XFCE</h1>
-		<p>"A faithful Windows 10 theme" by Honu</p>
-		<button onclick="dlfile()" class="dl">Download Fake10-v7.tar.gz (30.6MiB)</button><p id="infos" style="display: inline;"> </p>
-		<p>Last updated: July 8, 2026 (version 7)</p>
-		<p class="nobodycaresbrostfu">The Fake10 OpenDesktop page was deleted because of licensing issues with some bundled assets. I never expected Fake10 to take off in the first place, so I don't really mind, but I'd like to provide a download page for future updates and for users who still care about the theme. Consider yourself a part of my ultra-secret Windows 10 ricing club if you're viewing this page. And tell your friends!<br><br>The original listing amassed 7,500 downloads and reached #1 most popular XFCE theme before deletion. I was never contacted to fix any licensing issues.<br></p>
-		<a class="wittlelink" href="#about">About</a> | <a class="wittlelink" href="#desc">Description</a> | <a class="wittlelink" href="#thumbnails">Thumbnails</a> | <a class="wittlelink" href="#changelogs">Changelogs</a> | <a class="wittlelink" title="(About a month from deletion)" href="https://web.archive.org/web/20260603213958/https://www.xfce-look.org/p/2332691/">OD Archive</a> | <a class="wittlelink" title="(The site is community-funded with no relation to or knowledge of me. Consider donating to keep Fake10 available)" href="https://catbox.moe/support.php">Support File Host</a>
+<body>
+	<div id="topbar">
+		<div id="title" class="toptext">Fake10 for XFCE</div>
+		<div id="subtitle" class="toptext">"A faithful Windows 10 theme"</div>
+	</div>
+	<div class="border"></div>
+	<div id="showcase">
+		<div id="imgholder">
+			<img id="preview" src="sitecontent/1.png">
+		</div>
+		<div id="bleft">
+			<button onclick="cycle(-1)" class="cycle" id="cycleleft">←</button>
+		</div>
+		<div id="bright">
+			<button onclick="cycle(1)" class="cycle" id="cycleright">→</button>
+		</div>
+	</div>
+	<div class="border2"></div>
+	<div id="splitter">
+		<div class="half">
+			What's so different about Fake10 compared to similar themes?:<br>
+			• Made from scratch (for better & for worse), raw CSS, easily modifiable<br>
+			• Abides by the Windows 10 art style as much as possible (no Fluent icons, no pre-10 icons*)<br>
+			• Doesn't show any branding by default (for any Microsoft software)<br>
+			• Extremely high attention to detail and accuracy<br>
+			• Extremely simple accent color customization<br>
+			• Contains auto-installer shell script<br>
+			• Contains both light and dark modes<br>
+			• Contains brand new Win10-style icon recreations<br>
+			• Contains resizable Windows 10 cursors (and an extra inverted cursor theme)<br>
+			• Contains multiple start button icons to choose from<br>
+			• Contains multiple Plymouth boot screens with LUKS support<br>
+			• Supports the XFCE shade and stick buttons<br>
+			• Supports Qubes OS and Qubes window coloring<br><br>
+			*except for notepad<br><br>
+			PLEASE NOTE: If you're aiming for an accurate Windows 10-like experience, run the installer or complete the manual installation guide! Installing the theme correctly makes it way more satisfying, as it was designed to complement certain setting changes.<br><br>
+			Aside from that, Fake10 is a fantastic choice for minimal XFCE environments- with it being designed specifically for Arch Linux and Qubes OS. Heavier distributions should work fine, but they contain a lot of bundled programs which Fake10 might not support well. Be wary. Otherwise, try it out!<br><br>
+			<a href="sitecontent/demo.mp4" target="_blank">
+				<img class="vidthumbnail" src="sitecontent/demothumbnail.jpg">
+			</a><br>
+			Demo<div class="graytext"> [0:58]</div><br><br>
+			<a href="sitecontent/installer.mp4" target="_blank">
+				<img class="vidthumbnail" src="sitecontent/installerthumbnail.jpg">
+			</a><br>
+			Installer Showcase<div class="graytext"> [1:08] (theme looks better after reboot)</div>
+		</div>
+		<div class="half">
+			Releases:
+			<div class="spoiler">
+				<button class="spoilerbutton" id="spoiler7">[v7] Plymouth Themes</button>
+				<div class="spoilercontent" id="spoiler7content">
+					<div class="padtext">
+						<button onclick="dlv7()" class="downloadbtn">Download Fake10-v7.tar.gz (30.6MiB)</button><p id="infos7" style="display: inline;"> </p><br>
+						SHA256:<div class="graytext"> 14c3484dce51ce56a9f3419c9c4c5175003002a2bf5b5c0a2ef918dd44e5c3dd</div><br>
+						Installer SHA256:<div class="graytext"> 45dad7443e4bcf9b2ef65cf9331bbd0776ede4b4780a068e54af95cc9953ac9b</div>
+					</div>
+					<div class="border2"></div>
+					<div class="padtext">
+						• New customizable "W10 boot splash"-style Plymouth theme<br>
+						• New customizable "W10 user login"-style Plymouth theme w/ LUKS support<br>
+						• New customizable "BitLocker recovery"-style Plymouth theme w/ LUKS support<br>
+						• Alt+Tab menus are now styled in the GTK themes<br>
+						• JSON files now use INI file icons instead of batch script icons<br>
+						• The installer now automatically applies most Firefox settings<br>
+						• The installer now automatically applies cursor themes for Qubes OS<br>
+						• The installer now enables window tiling/snapping<br>
+						• The installer now checks for the XFCE Whisker Menu package<br>
+						• The installer now checks for the XFCE Generic Monitor package when relevant<br>
+						• The installer now fixes XFCE 4.18 offsets for distros other than Qubes OS<br>
+						• The installer now properly applies settings for legacy Whisker Menus<br>
+						• The installer now properly applies settings for legacy XFCE Terminals<br>
+						• Created a few missing symlinks (thx rainerhg7)<br>
+						• Changed the stupid script.desktop file name to prevent conflicts<br>
+						• Shortened reload-theme.sh delays due to Qubes OS issues on powerful hardware<br>
+						• Fixed coloring for some LibreOffice elements (thx rafaelramos)<br>
+						• Fixed file explorer highlighting in Qubes/XFCE 4.18 (thx rafaelramos)<br>
+						• Fixed desktop icon highlighting in Qubes/XFCE 4.18<br>
+						• Fixed the clock plugin text alignment in Qubes/XFCE 4.18<br>
+						• Fixed button highlighting for the toggled Firefox maximize button<br>
+						• Fixed some "multi-level symlinks" in the original icon theme<br>
+						• Added thumbnails and example images to the archive<br>
+						• Remade the colors.png accent color guide<br>
+						• Revised the manual setup guides<br>
+						• New Plymouth setup guide<br><br>
+						Also thanks to mthsemch for emailing me about taskbar customization. I might get around to adding more options in version 8.
+					</div>
+					<div class="border2"></div>
+					<div class="padtext"><div class="bottom"><span>Published July 8, 2026</span><span>~150 downloads before getting <a onclick="flash();" href="#dlinfo">delisted</a> July 10th</span></div></div>
+				</div>
+			</div>
+			<div class="spoiler">
+				<button class="spoilerbutton" id="spoiler6">[v6] Polishing</button>
+				<div class="spoilercontent" id="spoiler6content">
+					<div class="padtext">
+						<div class="redtext">Download unavailable</div><br>
+						SHA256:<div class="graytext"> 06b28b972072e0ab21f968c5e5b84c9c6aba1ee847d2ec604004e3e2386c437f</div><br>
+						Installer SHA256:<div class="graytext"> d10568b35e87ad6b68c042facd39b75d7a00fd5ee2abbbc510480edd8d090485</div>
+					</div>
+					<div class="border2"></div>
+					<div class="padtext">
+						Happy Easter!<br><br>
+						• New slim "Show Desktop" taskbar button (thx SebaRana678)<br>
+						• New Qubes OS constantly-tinted XFWM4 border<br>
+						• New Firefox CSS to make the interface more accurate<br>
+						• Now handling every possible terminal text color<br>
+						• Updated the GTK theme to support xfce4-docklike-plugin (thx moon65, version 0.5.1-1 and above only)<br>
+						• Various configuration files now use INI file icons<br>
+						• Fixed the mouse cursors when dragging desktop and Start menu items<br>
+						• Fixed the highlighted close button internal titlebar icon in the light theme<br>
+						• Fixed category vector icon coloring in the Start menu for the light theme (thx moon65)<br>
+						• Fixed hard-to-read Settings Manager icon labels for the light theme<br>
+						• Fixed hard-to-read line numbers in Mousepad for the dark theme<br>
+						• Fixed some tooltips from having transparent backgrounds in Firefox<br>
+						• Fixed Qubes OS virtual machine tooltip backgrounds<br>
+						• Revised the setup guide and installer<br>
+						• Revised and moved the reload theme script
+					</div>
+					<div class="border2"></div>
+					<div class="padtext"><div class="bottom"><span>Published April 5, 2026</span><span>~3,500 downloads</span></div></div>
+				</div>
+			</div>
+			<div class="spoiler">
+				<button class="spoilerbutton" id="spoiler5">[v5] Light Theme</button>
+				<div class="spoilercontent" id="spoiler5content">
+					<div class="padtext">
+						<div class="redtext">Download unavailable</div><br>
+						SHA256:<div class="graytext"> 16e252d168aead8f238e06930693cdca6576a17402f534aef20b3356f32a96e8</div><br>
+						Installer SHA256:<div class="graytext"> 7cacc786d9e0d06a832dd64da6ea4b15cecebf0414af62d3b99802889d3f6ef4</div>
+					</div>
+					<div class="border2"></div>
+					<div class="padtext">
+						• New light theme icons, cursors, GTK CSS, and XFWM4 borders<br>
+						• Five new Qubes OS light theme XFWM4 borders<br>
+						• New symlinks to hide Network Manager animations and VPN overlays<br>
+						• New miscellaneous symbolic icons<br>
+						• New icons for Redshift<br>
+						• Reworked spreadsheet and slideshow filetype icons<br>
+						• Python scripts now use batch script icons instead of text file icons<br>
+						• Reverted the XDG User Dirs Public folder icon to a standard folder<br>
+						• Updated the GTK theme to improve popover menus<br>
+						• Updated the GTK theme to improve internal titlebars<br>
+						• Updated the GTK theme to fix various small issues<br>
+						• Updated the guide and installer to let users apply the light theme<br>
+						• Updated the guide and installer to set more font and panel settings<br>
+						• Updated the installer to no longer place wallpapers in root directories<br>
+						• Updated the Qubes guide and Qubes directory structure<br>
+						• Deleted some unused assets
+					</div>
+					<div class="border2"></div>
+					<div class="padtext"><div class="bottom"><span>Published February 28, 2026</span><span>~1,000 downloads</span></div></div>
+				</div>
+			</div>
+			<div class="spoiler">
+				<button class="spoilerbutton" id="spoiler4">[v4] EZ Installer</button>
+				<div class="spoilercontent" id="spoiler4content">
+					<div class="padtext">
+						<div class="redtext">Download unavailable</div><br>
+						SHA256:<div class="graytext"> 96757042533dd0e43871d998cd0767ecce6fd10902a834a79f3440d89de985af</div><br>
+						Installer SHA256:<div class="graytext"> e82471eda0351d96f4825d0ee59500229d17f77c2bf92da1304932386fcf31d3</div>
+					</div>
+					<div class="border2"></div>
+					<div class="padtext">
+						• New auto-installer shell script with support for Qubes and Qubes VMs<br>
+						• New XFWM4 "Accent Color" border<br>
+						• Two new Qubes XFWM4 borders which tint the entire title bar<br>
+						• Improved anti-aliasing appearance on smaller task manager icons<br>
+						• New icons for arch-update and alarm-clock-applet AUR packages<br>
+						• New icons to properly handle PDF filetypes<br>
+						• New symlinks to fix some filetype icons<br>
+						• New symlinks to fix some play button icons<br>
+						• Now handling treeview checkboxes in the GTK theme<br>
+						• Fixed inconsistent Start menu category button alignment<br>
+						• Fixed Start menu background color (Was off by a single value; #202020 instead of #1F1F1F)<br>
+						• Fixed the inactive window title text color (Was using W10 File Explorer as a reference, where it's slightly brighter than normal apps)<br>
+						• Fixed deprecated CSS line causing warnings<br>
+						• Revised the setup guides and added more optional customization steps<br>
+						• Replaced Windows accent color codes section with an image guide
+					</div>
+					<div class="border2"></div>
+					<div class="padtext"><div class="bottom"><span>Published February 11, 2026</span><span>471 downloads</span></div></div>
+				</div>
+			</div>
+			<div class="spoiler">
+				<button class="spoilerbutton" id="spoiler3">[v3] Polishing</button>
+				<div class="spoilercontent" id="spoiler3content">
+					<div class="padtext">
+						<div class="redtext">Download unavailable</div><br>
+						SHA256:<div class="graytext"> e991938b1a5c3795eac35694a2e1df73c2041c6713a7d34bbbfe7264fff8b0a3</div>
+					</div>
+					<div class="border2"></div>
+					<div class="padtext">
+						• Brightened window borders to be more accurate to real world usage (borders in W10 are semi-transparent)<br>
+						• New icons to support Telegram notifications, the Wi-Fi password entry window, and Whonix's tray icon in Qubes<br>
+						• Updated the shell script to ensure the GTK theme is applied to the show desktop button<br>
+						• Revised the setup guides and added more optional customization steps<br>
+						• New start menu icon for Debian
+					</div>
+					<div class="border2"></div>
+					<div class="padtext"><div class="bottom"><span>Published January 7, 2026</span><span>1,083 downloads</span></div></div>
+				</div>
+			</div>
+			<div class="spoiler">
+				<button class="spoilerbutton" id="spoiler2">[v2] Qubes OS Support</button>
+				<div class="spoilercontent" id="spoiler2content">
+					<div class="padtext">
+						<div class="redtext">Download unavailable</div><br>
+						SHA256:<div class="graytext"> 23c3eeb216d5f82bd4e3c50861e87e6852b8173bc60ddcd6ab2d8983a120ba6b</div>
+					</div>
+					<div class="border2"></div>
+					<div class="padtext">
+						• Three new XFWM4 Qubes-compatible window borders to choose from<br>
+						• Dedicated Qubes symbolic icons<br>
+						• New Qubes section in the setup guide<br>
+					</div>
+					<div class="border2"></div>
+					<div class="padtext"><div class="bottom"><span>Published December 8, 2025</span><span>833 downloads</span></div></div>
+				</div>
+			</div>
+			<div class="spoiler">
+				<button class="spoilerbutton" id="spoiler1">[v1] Initial Release</button>
+				<div class="spoilercontent" id="spoiler1content">
+					<div class="padtext">
+						<div class="redtext">Download unavailable</div><br>
+						Hotfix SHA256:<div class="graytext"> 0fd0d5bf68e0b77f3a92c2079c4ba84602396f0138dae4285fc4f787874614e3</div><br>
+						SHA256:<div class="graytext"> e5db3ce489a53b476e9d3aac6ec5051c383e9bbb7aab8694365693d5154621f6</div><br>
+					</div>
+					<div class="border2"></div>
+					<div class="padtext">
+						(There were never any changelogs made for this version, but the hotfix added the "eject" symbolic icon. I noticed the issue in Thunar when installing Fake10 on real hardware.)
+					</div>
+					<div class="border2"></div>
+					<div class="padtext"><div class="bottom"><span>Published December 6, 2025</span><span>151 downloads</span></div></div>
+				</div>
+			</div>
+			<div id="dlinfo" class="graytext">
+				<div id="special">Download counts are sourced from OpenDesktop, where Fake10 was previously hosted. Fake10 reached <a href="sitecontent/numerouno.png" target="_blank">#1 most popular</a> XFWM4/XFCE theme on February 20, 2026, and remained there until being silently delisted for licensing reasons. <a href="https://web.archive.org/web/20260603213958/https://www.xfce-look.org/p/2332691/">archive.org snapshot ~a month from deletion</a></div>
+			</div>
+		</div>
 	</div>
 	<br>
-	<h2 id="about">About</h2>
-	This is a complex XFCE Linux theme/rice which looks like Windows 10 that I decided to release publicly.<br>
-	This is my first Linux, CSS, GTK, and bash scripting project, so it's very spaghetti, though it still outperforms other Windows 10 themes.<br>
-	Consider all content <u>by me</u> public domain. I'd prefer credit if you modify this, but it's really up to you.<br>
-	This theme was originally published in December of 2025.
-	<h2 id="desc">Description</h2>
-	"A faithful Windows 10 theme" by Honu<br><br>
-	What's so different about Fake10 compared to similar themes?:<br>
-	- Made from scratch (for better & for worse), easily modifiable<br>
-	- Abides by the Windows 10 art style as much as possible (no Fluent icons, no pre-10 icons¹)<br>
-	- Doesn't show any branding by default (for any Microsoft software)<br>
-	- Extremely high attention to detail and accuracy<br>
-	- Extremely simple accent color customization<br>
-	- Contains auto-installer shell script<br>
-	- Contains both light and dark modes<br>
-	- Contains brand new Win10-style icon recreations<br>
-	- Contains resizable Windows 10 cursors (and an extra inverted cursor theme)<br>
-	- Contains multiple start button icons to choose from<br>
-	- Contains multiple Plymouth boot screens with LUKS support<br>
-	- Supports the XFCE shade and stick buttons<br>
-	- Supports Qubes OS and Qubes window coloring<br><br>
-	¹except for notepad<br><br>
-	PLEASE NOTE: If you're aiming for an accurate Windows 10-like experience, run the installer or<br>
-	complete the manual installation guide! Installing the theme correctly makes it way more<br>
-	satisfying, as it was designed to complement certain setting changes.<br><br>
-	Aside from that, Fake10 is a fantastic choice for minimal XFCE environments- with it being designed<br>
-	specifically for Arch Linux and Qubes OS. Heavier distributions should work fine, but they contain a<br>
-	lot of bundled programs which Fake10 might not support well. Be wary. Otherwise, try it out!
-	<h2 id="thumbnails">Thumbnails</h2>
-	<div class="grid">
-		<div class="grid-item"><img src="sitecontent/1.png"></div>
-		<div class="grid-item"><img src="sitecontent/2.png"></div>
-		<div class="grid-item"><img src="sitecontent/3.png"></div>
-		<div class="grid-item"><img src="sitecontent/4.png"></div>
-		<div class="grid-item"><img src="sitecontent/5.png"></div>
-		<div class="grid-item"><img src="sitecontent/6.png"></div>
-		<div class="grid-item"><img src="sitecontent/7.png"></div>
-		<div class="grid-item"><img src="sitecontent/8.png"></div>
-		<div class="grid-item"><img src="sitecontent/9.png"></div>
-		<div class="grid-item"><img src="sitecontent/0.png"></div>
+	<div class="border2"></div>
+	<div id="coolstuff">
+		<div id="coolstuffcontainer">
+			<span><img id="honu" src="sitecontent/logofix.svg"></img></span><span><div id="linksninfo"><b>Fake10 by Honu</b><br><br><a class="graylink" target="_blank" href="https://github.com/honu1234/fake10/">Star on GitHub</a><br><br><a class="graylink" target="_blank" title="(The site is community-funded with no relation to or knowledge of me. Consider donating to keep Fake10 available)" href="https://catbox.moe/support.php">Support the file host</a><br><br><a class="graylink" target="_blank" href="https://forum.qubes-os.org/t/windows-10-theme-for-qubes/37791">Qubes OS forum page</a><br><br>My email is in "guide-and-info.txt"</div></span>
+		</div>
 	</div>
-	<h2 id="changelogs">Changelogs</h2>
-	<h3>[v7] Plymouth Themes</h3>
-	+ New customizable "W10 boot splash"-style Plymouth theme<br>
-	+ New customizable "W10 user login"-style Plymouth theme w/ LUKS support<br>
-	+ New customizable "BitLocker recovery"-style Plymouth theme w/ LUKS support<br>
-	+ Alt+Tab menus are now styled in the GTK themes<br>
-	+ JSON files now use INI file icons instead of batch script icons<br>
-	+ The installer now automatically applies most Firefox settings<br>
-	+ The installer now automatically applies cursor themes for Qubes OS<br>
-	+ The installer now enables window tiling/snapping<br>
-	+ The installer now checks for the XFCE Whisker Menu package<br>
-	+ The installer now checks for the XFCE Generic Monitor package when relevant<br>
-	+ The installer now fixes XFCE 4.18 offsets for distros other than Qubes OS<br>
-	+ The installer now properly applies settings for legacy Whisker Menus<br>
-	+ The installer now properly applies settings for legacy XFCE Terminals<br>
-	+ Created a few missing symlinks (thx rainerhg7)<br>
-	+ Changed the stupid script.desktop file name to prevent conflicts<br>
-	+ Shortened reload-theme.sh delays due to Qubes OS issues on powerful hardware<br>
-	+ Fixed coloring for some LibreOffice elements (thx rafaelramos)<br>
-	+ Fixed file explorer highlighting in Qubes/XFCE 4.18 (thx rafaelramos)<br>
-	+ Fixed desktop icon highlighting in Qubes/XFCE 4.18<br>
-	+ Fixed the clock plugin text alignment in Qubes/XFCE 4.18<br>
-	+ Fixed button highlighting for the toggled Firefox maximize button<br>
-	+ Fixed some "multi-level symlinks" in the original icon theme<br>
-	+ Added thumbnails and example images to the archive<br>
-	+ Remade the colors.png accent color guide<br>
-	+ Revised the manual setup guides<br>
-	+ New Plymouth setup guide<br><br>
-	! v7 installer SHA256 hash: 45dad7443e4bcf9b2ef65cf9331bbd0776ede4b4780a068e54af95cc9953ac9b<br><br>
-	Also thanks to mthsemch for emailing me about taskbar customization. I might get around to adding more options in version 8.
-	<h3>[v6] Polishing</h3>
-	Happy Easter!<br><br>
-	+ New slim "Show Desktop" taskbar button (thx SebaRana678)<br>
-	+ New Qubes OS constantly-tinted XFWM4 border<br>
-	+ New Firefox CSS to make the interface more accurate<br>
-	+ Now handling every possible terminal text color<br>
-	+ Updated the GTK theme to support xfce4-docklike-plugin (thx moon65, version 0.5.1-1 and above only)<br>
-	+ Various configuration files now use INI file icons<br>
-	+ Fixed the mouse cursors when dragging desktop and Start menu items<br>
-	+ Fixed the highlighted close button internal titlebar icon in the light theme<br>
-	+ Fixed category vector icon coloring in the Start menu for the light theme (thx moon65)<br>
-	+ Fixed hard-to-read Settings Manager icon labels for the light theme<br>
-	+ Fixed hard-to-read line numbers in Mousepad for the dark theme<br>
-	+ Fixed some tooltips from having transparent backgrounds in Firefox<br>
-	+ Fixed Qubes OS virtual machine tooltip backgrounds<br>
-	+ Revised the setup guide and installer<br>
-	+ Revised and moved the reload theme script<br><br>
-	! v6 installer SHA256 hash: d10568b35e87ad6b68c042facd39b75d7a00fd5ee2abbbc510480edd8d090485
-	<h3>[v5] Light Theme</h3>
-	+ New light theme icons, cursors, GTK CSS, and XFWM4 borders<br>
-	+ Five new Qubes OS light theme XFWM4 borders<br>
-	+ New symlinks to hide Network Manager animations and VPN overlays<br>
-	+ New miscellaneous symbolic icons<br>
-	+ New icons for Redshift<br>
-	+ Reworked spreadsheet and slideshow filetype icons<br>
-	+ Python scripts now use batch script icons instead of text file icons<br>
-	+ Reverted the XDG User Dirs Public folder icon to a standard folder<br>
-	+ Updated the GTK theme to improve popover menus<br>
-	+ Updated the GTK theme to improve internal titlebars<br>
-	+ Updated the GTK theme to fix various small issues<br>
-	+ Updated the guide and installer to let users apply the light theme<br>
-	+ Updated the guide and installer to set more font and panel settings<br>
-	+ Updated the installer to no longer place wallpapers in root directories<br>
-	+ Updated the Qubes guide and Qubes directory structure<br>
-	+ Deleted some unused assets<br><br>
-	! v5 installer SHA256 hash: 7cacc786d9e0d06a832dd64da6ea4b15cecebf0414af62d3b99802889d3f6ef4
-	<h3>[v4] EZ Installer</h3>
-	+ New auto-installer shell script with support for Qubes and Qubes VMs<br>
-	+ New XFWM4 "Accent Color" border<br>
-	+ Two new Qubes XFWM4 borders which tint the entire title bar<br>
-	+ Improved anti-aliasing appearance on smaller task manager icons<br>
-	+ New icons for arch-update and alarm-clock-applet AUR packages<br>
-	+ New icons to properly handle PDF filetypes<br>
-	+ New symlinks to fix some filetype icons<br>
-	+ New symlinks to fix some play button icons<br>
-	+ Now handling treeview checkboxes in the GTK theme<br>
-	+ Fixed inconsistent Start menu category button alignment<br>
-	+ Fixed Start menu background color (Was off by a single value; #202020 instead of #1F1F1F)<br>
-	+ Fixed the inactive window title text color (Was using W10 File Explorer as a reference, where it's slightly brighter than normal apps)<br>
-	+ Fixed deprecated CSS line causing warnings<br>
-	+ Revised the setup guides and added more optional customization steps<br>
-	+ Replaced Windows accent color codes section with an image guide<br><br>
-	! v4 installer SHA256 hash: e82471eda0351d96f4825d0ee59500229d17f77c2bf92da1304932386fcf31d3
-	<h3>[v3] Polishing</h3>
-	+ Brightened window borders to be more accurate to real world usage (borders in W10 are semi-transparent)<br>
-	+ New icons to support Telegram notifications, the Wi-Fi password entry window, and Whonix's tray icon in Qubes<br>
-	+ Updated the shell script to ensure the GTK theme is applied to the show desktop button<br>
-	+ Revised the setup guides and added more optional customization steps<br>
-	+ New start menu icon for Debian
-	<h3>[v2] Qubes OS Support</h3>
-	+ Three new XFWM4 Qubes-compatible window borders to choose from<br>
-	+ Dedicated Qubes symbolic icons<br>
-	+ New Qubes section in the setup guide<br><br>
-	<img src="sitecontent/numerouno.png">
 </body>
 </html>
 <style>
 	@font-face {
 		font-family: "Skibidi UI";
 		src: url("sitecontent/sui.ttf") format("truetype");
-		font-weight: normal;
-		font-style: normal;
-		font-display: swap;
 	}
 	body {
-		font-family: "Skibidi UI", Arial, sans-serif;
-		color: #FFFFFF;
-		padding: 20px;
-		margin: 0px;
+		font-family: "Skibidi UI";
+		line-height: 1;
+		margin: 0;
+		padding: 0;
 	}
-	.boxy {
+	#topbar {
+		width: 100%;
+		height: 100px;
+		background: linear-gradient(to right, #00A5F7, #019BF1, #027EE0, #0D59C9, #023DB3);
+		text-align: center;
+	}
+	.toptext {
+		color: white;
+		text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.4);
+	}
+	#title {
 		padding-top: 8px;
-		padding-left: 8px;
+		font-size: 48px;
 	}
-	.prettyimg {
+	#subtitle {
+		padding-top: 10px;
+		font-size: 18px;
+	}
+	.border {
+		background-color: #707070;
+		height: 1px;
+	}
+	#showcase {
+		border: 6px solid #F0F0F0;
+		border-left: 0px;
+		border-right: 0px;
+		background-color: #F0F0F0;
+	}
+	#imgholder {
+		display: flex;
+		justify-content: center;
+	}
+	#preview {
+		height: min(768px, 80vh);
+		max-width: 100%;
+		object-fit: contain;
+		cursor: zoom-in;
+	}
+	.cycle {
+		margin-left: 8px;
+		margin-right: 8px;
+		background-color: white;
+		width: 40px;
+		height: 40px;
+		border-radius: 20px;
+		border: 1px solid #707070;
+	}
+	.cycle:hover {
+		background-color: #F0F0F0;
+		cursor: pointer;
+	}
+	.cycle:active {
+		background-color: #E0E0E0;
+	}
+	#bleft {
 		position: absolute;
-		top: 0px;
-		left: 0px;
-		z-index: -1;
+		margin-top: calc((min(768px, 80vh) + 40px) * -0.5);
 	}
-	.dl {
+	#bright {
+		position: absolute;
+		margin-top: calc((min(768px, 80vh) + 40px) * -0.5);
+		right: 0;
+	}
+	.border2 {
+		background-color: #AAAAAA;
+		height: 1px;
+	}
+	#splitter {
+		padding-top: 5px;
+		max-width: 1366px;
+		margin: 0 auto;
+		display: flex;
+		flex-wrap: wrap;
+		line-height: normal;
+	}
+	.half {
+		flex: 1 1 441px;
+		padding: 2px;
+	}
+	.spoiler {
+		padding-bottom: 6px;
+	}
+	.spoilerbutton {
+		width: 100%;
+		background-color: #F0F0F0;
+		font-size: 16px;
+		text-color: black;
+		text-align: left;
+		padding-top: 2px;
+		padding-bottom: 3px;
+		border: 1px solid #707070;
+	}
+	.spoilerbutton:hover {
+		cursor: pointer;
+		background-color: #E8E8E8;
+	}
+	.spoilerbutton:active {
+		background-color: #E0E0E0;
+	}
+	.spoilercontent {
+		display: none;
+		border: 1px solid #707070;
+		border-top: none;
+		box-shadow: inset 0 1px 0 0 #AAAAAA;
+		padding-top: 1px;
+	}
+	.spoilerbutton.open {
+		border-bottom: none;
+	}
+	.spoilercontent.open {
+		display: block;
+	}
+	.padtext {
+		padding-left: 2px;
+		padding-right: 2px;
+	}
+	.graytext {
+		display: inline;
+		color: #606060;
+	}
+	.redtext {
+		display: inline;
+		color: #FF4343;
+	}
+	.bottom {
+		display: flex;
+		justify-content: space-between;
+	}
+	.downloadbtn {
+		margin-left: 2px;
+		margin-top: 4px;
+		color: white;
 		background-color: #00CC6A;
-		color: #FFFFFF;
-		border-radius: 0px;
-		border: 0px;
-		padding: 4px;
-		padding-left: 8px;
-		padding-right: 8px;
+		border: none;
+		padding: 6px;
+		padding-left: 10px;
+		padding-right: 10px;
 	}
-	.dl:hover {
+	.downloadbtn:hover {
 		background-color: #26D480;
 		cursor: pointer;
 	}
-	.dl:active {
+	.downloadbtn:active {
 		background-color: #00B85F;
 	}
-	.nobodycaresbrostfu {
-		max-width: 572px;
-		color: #AAAAAA;
+	@keyframes flashpink {
+		50% { color: #FF00FF; }
 	}
-	.wittlelink {
-		color: #EEEEEE;
+	#special.flash {
+		animation: flashpink 0.2s ease-in-out 4;
 	}
-	.warn {
-		padding: 0px;
-		margin-bottom: 0px;
-		margin-right: -20px;
-		margin-left: -20px;
-		margin-top: -20px;
-		text-align:center;
-		background-color: #000000;
+	#coolstuff {
+		background-color: #F0F0F0;
+		position: relative;
 	}
-	.grid {
-		display: grid;
-		grid-template-columns: repeat(3, 1fr);
-		gap: 8px;
-		width: 100%;
+	#coolstuff::after {
+		content: "";
+		position: absolute;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		height: 100px;
+		background-image: url("sitecontent/wave.svg");
+		background-size: 100px 100px;
+		background-repeat: repeat-x;
+		background-position: bottom left;
 	}
-
-	.grid-item {
-		overflow: hidden;
-		background: #202020;
+	#coolstuff::before {
+		content: "";
+		position: absolute;
+		left: 0;
+		right: 0;
+		bottom: 5px;
+		height: 100px;
+		background-image: url("sitecontent/wave.svg");
+		filter: brightness(2.1429);
+		background-size: 100px 100px;
+		background-repeat: repeat-x;
+		background-position: bottom left;
 	}
-
-	.grid-item img {
-		display: block;
-		width: 100%;
-		height: auto;
+	#coolstuffcontainer {
+		max-width: 1366px;
+		margin: 0 auto;
+		padding-top: 24px;
+		padding-left: 10px;
+		padding-right: 10px;
+		display: flex;
+		justify-content: space-between;
+	}
+	#linksninfo {
+		color: #707070;
+		text-align: right;
+	}
+	.graylink {
+		color: #707070;
+	}
+	.vidthumbnail {
+		border: 1px solid #707070;
+	}
+	.vidthumbnail:hover {
+		border-color: #FF00FF;
+	}
+	#honu {
+		user-select: none;
+		pointer-events: none;
 	}
 </style>
 <script>
-async function dlfile() {
+document.getElementById("preview").addEventListener("click", function() {
+	window.open(this.src, "_blank");
+});
+document.getElementById("spoiler7").classList.toggle("open");
+document.getElementById("spoiler7content").classList.toggle("open");
+new Image().src = "sitecontent/2.png";
+let loaded = false;
+function preloadthumbnails() {
+	loaded = true;
+	["sitecontent/3.png", "sitecontent/4.png", "sitecontent/5.png", "sitecontent/6.png"].forEach(src => {
+		new Image().src = src;
+	});
+}
+let x = 1;
+function cycle(d) {
+	if (loaded == false) {
+		preloadthumbnails();
+	}
+	x = x + (1 * d);
+	if (x > 6) {
+		x = 1;
+	}
+	if (x < 1) {
+		x = 6;
+	}
+	document.getElementById("preview").src = "sitecontent/" + x + ".png"; 
+}
+document.getElementById("spoiler7").addEventListener("click", function() {
+	document.getElementById("spoiler7").classList.toggle("open");
+	document.getElementById("spoiler7content").classList.toggle("open");
+});
+document.getElementById("spoiler6").addEventListener("click", function() {
+	document.getElementById("spoiler6").classList.toggle("open");
+	document.getElementById("spoiler6content").classList.toggle("open");
+});
+document.getElementById("spoiler5").addEventListener("click", function() {
+	document.getElementById("spoiler5").classList.toggle("open");
+	document.getElementById("spoiler5content").classList.toggle("open");
+});
+document.getElementById("spoiler4").addEventListener("click", function() {
+	document.getElementById("spoiler4").classList.toggle("open");
+	document.getElementById("spoiler4content").classList.toggle("open");
+});
+document.getElementById("spoiler3").addEventListener("click", function() {
+	document.getElementById("spoiler3").classList.toggle("open");
+	document.getElementById("spoiler3content").classList.toggle("open");
+});
+document.getElementById("spoiler2").addEventListener("click", function() {
+	document.getElementById("spoiler2").classList.toggle("open");
+	document.getElementById("spoiler2content").classList.toggle("open");
+});
+document.getElementById("spoiler1").addEventListener("click", function() {
+	document.getElementById("spoiler1").classList.toggle("open");
+	document.getElementById("spoiler1content").classList.toggle("open");
+});
+function flash() {
+	special.classList.remove("flash");
+	void special.offsetWidth;
+	special.classList.add("flash");
+}
+async function dlv7() {
 	try {
-		document.getElementById("infos").textContent = " downloading";
+		document.getElementById("infos7").textContent = " downloading";
 		const response = await fetch("https://files.catbox.moe/u0l69k.gz");
-		document.getElementById("infos").textContent = " making blob";
+		document.getElementById("infos7").textContent = " making blob, this might take a while";
 		const blob = await response.blob();
 		const blobUrl = URL.createObjectURL(blob);
 		const thing = document.createElement("a");
@@ -241,9 +547,9 @@ async function dlfile() {
 		document.body.appendChild(thing);
 		thing.click();
 		document.body.removeChild(thing);
-		document.getElementById("infos").textContent = " OK";
+		document.getElementById("infos7").textContent = " OK";
 	} catch (err) {
-		document.getElementById("infos").textContent = " fail";
+		document.getElementById("infos7").textContent = " fail";
 		alert("Download failure. Please try again later.");
 	}
 }
