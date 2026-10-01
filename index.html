@@ -4,7 +4,8 @@
 	<title>Fake10 for XFCE</title>
 	<link rel="icon" href="sitecontent/icon.png" type="image/x-icon">
 	<meta charset="UTF-8">
-	<meta name="description" content="A faithful Windows 10 theme for XFCE/Linux">
+	<meta name="description" content="Fake10 is a faithful Windows 10-style theme for XFCE/Linux. View previews, changelogs, and downloads here.">
+	<meta name="og:description" content="A faithful Windows 10 theme for XFCE/Linux">
 	<meta property="og:image" content="https://honu1234.github.io/fake10/sitecontent/0.png">
 </head>
 <body>
@@ -234,11 +235,14 @@
 						SHA256:<div class="graytext"> e5db3ce489a53b476e9d3aac6ec5051c383e9bbb7aab8694365693d5154621f6</div><br>
 					</div>
 					<div class="border2"></div>
-					<div class="padtext">
-						(There were never any changelogs made for this version, but the hotfix added the "eject" symbolic icon. I noticed the issue in Thunar when installing Fake10 on real hardware.)
-					</div>
-					<div class="border2"></div>
 					<div class="padtext"><div class="bottom"><span>Published December 6, 2025</span><span>151 downloads</span></div></div>
+				</div>
+			</div>
+			<div id="wip">
+				<div class="padtext">
+					Coming next release:<br>
+					• Updated Qubes OS XFWM4 borders to look better with the <a target="_blank" href="https://github.com/QubesOS/qubes-core-admin/pull/890">new colors</a><br>
+					• Updated Firefox CSS to handle button hovering with the new UI properly
 				</div>
 			</div>
 			<div id="dlinfo" class="graytext">
@@ -289,6 +293,7 @@
 		height: 1px;
 	}
 	#showcase {
+		position: relative;
 		border: 6px solid #F0F0F0;
 		border-left: 0px;
 		border-right: 0px;
@@ -299,7 +304,7 @@
 		justify-content: center;
 	}
 	#preview {
-		height: min(768px, 80vh);
+		max-height: min(768px, 80vh);
 		max-width: 100%;
 		object-fit: contain;
 		cursor: zoom-in;
@@ -322,11 +327,14 @@
 	}
 	#bleft {
 		position: absolute;
-		margin-top: calc((min(768px, 80vh) + 40px) * -0.5);
+		top: 50%;
+		transform: translateY(-50%);
+		left: 0;
 	}
 	#bright {
 		position: absolute;
-		margin-top: calc((min(768px, 80vh) + 40px) * -0.5);
+		top: 50%;
+		transform: translateY(-50%);
 		right: 0;
 	}
 	.border2 {
@@ -403,6 +411,8 @@
 		padding: 6px;
 		padding-left: 10px;
 		padding-right: 10px;
+		text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
+		box-shadow: inset 0 0 0 1px #00CC6A;
 	}
 	.downloadbtn:hover {
 		background-color: #26D480;
@@ -467,6 +477,11 @@
 	}
 	.vidthumbnail:hover {
 		border-color: #FF00FF;
+	}
+	#wip {
+		color: #606060;
+		border: 1px dotted #606060;
+		margin-bottom: 6px;
 	}
 	#honu {
 		user-select: none;
@@ -537,7 +552,7 @@ function flash() {
 async function dlv7() {
 	try {
 		document.getElementById("infos7").textContent = " downloading";
-		const response = await fetch("https://files.catbox.moe/u0l69k.gz");
+		const response = await fetch("https://files.catbox.moe/u0l69k.gz"); <!-- if you dl directly, rename the file so it has ".tar.gz" instead of just ".gz" -->
 		document.getElementById("infos7").textContent = " making blob, this might take a while";
 		const blob = await response.blob();
 		const blobUrl = URL.createObjectURL(blob);
